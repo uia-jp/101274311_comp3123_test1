@@ -1,24 +1,26 @@
 
-
+//function
 const lowerCaseWords = (mixedArray) => {
 
     return new Promise((resolve, reject) => {
 
-        if(mixedArray.length >= 0 && Array.isArray(mixedArray)) {
-            const filteredArrayHavingOnlyStr = mixedArray.filter((eachElOfArr) => typeof eachElOfArr === "string");
-            const mappedArrayOfLowerCaseStrings = filteredArrayHavingOnlyStr.map((eachItemOfFilterArr) => eachItemOfFilterArr.toLowerCase());
+        if(mixedArray.length >= 0 && Array.isArray(mixedArray)){
+            const filterString = mixedArray.filter((item) => typeof item === "string");
+            const arrayLowercaseWords = filterString.map((filteredItem) => filteredItem.toLowerCase());
             
-            resolve(mappedArrayOfLowerCaseStrings);
+            resolve(arrayLowercaseWords);
             
         }else{
-            reject("Invalid array");
+            reject("error");
         }
+
     });
 };
   
 //input
 const mixedArray = ["PIZZA", 10, true, 25, false, "Wings"];
 
+//output
 lowerCaseWords(mixedArray)
     .then((value) =>
       console.log(value)
